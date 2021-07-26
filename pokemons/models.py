@@ -1,31 +1,32 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
 class TypeOptions(models.TextChoices):
-    BUG = 'BUG', 'Bug'
-    DARK = 'DAR', 'Dark'
-    DRAGON = 'DRA', 'Dragon'
-    ELECTRIC = 'ELE', 'Electric'
-    FAIRY = 'FAI', 'Fairy'
-    FIGHTING = 'FIG', 'Fighting'
-    FIRE = 'FIR', 'Fire'
-    FLYING = 'FLY', 'Flying'
-    GHOST = 'GHO', 'Ghost'
-    GRASS = 'GRA', 'Grass'
-    GROUND = 'GRO', 'Ground'
-    ICE = 'ICE', 'Ice'
-    NORMAL = 'NOR', 'Normal'
-    POISON = 'POI', 'Poison'
-    PSYCHIC = 'PSY', 'Psychic'
-    ROCK = 'ROC', 'Rock'
-    STEEL = 'STE', 'Steel'
-    WATER = 'WAT', 'Water'
+    BUG = 'Bug'
+    DARK = 'Dark'
+    DRAGON = 'Dragon'
+    ELECTRIC = 'Electric'
+    FAIRY = 'Fairy'
+    FIGHTING = 'Fighting'
+    FIRE = 'Fire'
+    FLYING = 'Flying'
+    GHOST = 'Ghost'
+    GRASS = 'Grass'
+    GROUND = 'Ground'
+    ICE = 'Ice'
+    NORMAL = 'Normal'
+    POISON = 'Poison'
+    PSYCHIC = 'Psychic'
+    ROCK = 'Rock'
+    STEEL = 'Steel'
+    WATER = 'Water'
 
 class Pokemon(models.Model):
     name        = models.CharField(max_length=225)
-    type_one    = models.CharField(max_length=3, choices=TypeOptions.choices, blank=True, null=True)
-    type_two    = models.CharField(max_length=3, choices=TypeOptions.choices, blank=True, null=True)
+    type_one    = models.CharField(max_length=20, choices=TypeOptions.choices, blank=True, null=True)
+    type_two    = models.CharField(max_length=20, choices=TypeOptions.choices, blank=True, null=True)
     total       = models.PositiveIntegerField(default=0)
     hp          = models.PositiveIntegerField(default=0)
     attack      = models.PositiveIntegerField(default=0)
